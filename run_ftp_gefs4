@@ -1,11 +1,11 @@
 #!/bin/bash
 #PBS -N gefs.ftp4
-#PBS -o /lfs/h2/emc/ptmp/alicia.bentley/cron.out/gefsftp4.out
-#PBS -e /lfs/h2/emc/ptmp/alicia.bentley/cron.out/gefsftp4.err
+#PBS -o /lfs/h2/emc/ptmp/jesse.meng/cron.out/gefsftp4.out
+#PBS -e /lfs/h2/emc/ptmp/jesse.meng/cron.out/gefsftp4.err
 #PBS -l select=1:ncpus=10:mem=2GB
 #PBS -q dev_transfer
 #PBS -l walltime=02:00:00
-#PBS -A VERF-DEV
+#PBS -A GFS-DEV
 
 set -x
 
@@ -23,9 +23,17 @@ ls -l *csv
 
 pwd
 
-scp *shear*csv abentley@emcrzdm:/home/www/emc/htdocs/users/meg/gefs_plumes
-scp *thick*csv abentley@emcrzdm:/home/www/emc/htdocs/users/meg/gefs_plumes
-scp *typ*csv abentley@emcrzdm:/home/www/emc/htdocs/users/meg/gefs_plumes
+#scp *shear*csv abentley@emcrzdm:/home/www/emc/htdocs/users/meg/gefs_plumes
+#scp *thick*csv abentley@emcrzdm:/home/www/emc/htdocs/users/meg/gefs_plumes
+#scp *typ*csv abentley@emcrzdm:/home/www/emc/htdocs/users/meg/gefs_plumes
+
+scp *shear*csv wd20mj@emcrzdm.ncep.noaa.gov:/home/www/emc/htdocs/users/meg/gefs_plumes
+scp *thick*csv wd20mj@emcrzdm.ncep.noaa.gov:/home/www/emc/htdocs/users/meg/gefs_plumes
+scp *typ*csv   wd20mj@emcrzdm.ncep.noaa.gov:/home/www/emc/htdocs/users/meg/gefs_plumes
+
+scp *shear*csv wd20mj@emcrzdm.ncep.noaa.gov:/home/people/emc/www/htdocs/mmb/gldas/gefs_plumes
+scp *thick*csv wd20mj@emcrzdm.ncep.noaa.gov:/home/people/emc/www/htdocs/mmb/gldas/gefs_plumes
+scp *typ*csv wd20mj@emcrzdm.ncep.noaa.gov:/home/people/emc/www/htdocs/mmb/gldas/gefs_plumes
 
 
 exit

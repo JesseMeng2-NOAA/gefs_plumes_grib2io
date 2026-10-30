@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/ksh -l
 #PBS -N gefs_plumes
-#PBS -o /lfs/h2/emc/ptmp/alicia.bentley/cron.out/gefs_plumes.out
-#PBS -e /lfs/h2/emc/ptmp/alicia.bentley/cron.out/gefs_plumes.err
+#PBS -o /lfs/h2/emc/ptmp/jesse.meng/cron.out/gefs_plumes.out
+#PBS -e /lfs/h2/emc/ptmp/jesse.meng/cron.out/gefs_plumes.err
 #PBS -l select=2:ncpus=16:mpiprocs=4:mem=200GB
 #PBS -q dev
 #PBS -l walltime=03:00:00
-#PBS -A VERF-DEV
+#PBS -A GFS-DEV
 
 set +x
 source /lfs/h2/emc/vpppg/noscrub/${USER}/gefsv12/versions/run.ver
@@ -31,7 +31,8 @@ module use /lfs/h1/mdl/nbm/save/apps/modulefiles
 module load python-modules/${python_ver}
 export PYTHONPATH="${PYTHONPATH}:/lfs/h2/emc/vpppg/noscrub/${USER}/python"
 
-#module list
+module list
+echo $PYTHONPATH
 set -x
 
 cd /lfs/h2/emc/ptmp/${USER}/gefsv12

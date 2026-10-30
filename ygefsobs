@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/ksh -l
 echo 'into'
 #Script to create text files of surface obs at various stations
 source /lfs/h2/emc/vpppg/noscrub/${USER}/gefsv12/versions/run.ver
@@ -102,6 +102,13 @@ sed '/^\s*$/d' pancobs.txt | sed '/STN/d' | sed '/PARM/d' | sed '/P01I/d'  > rtm
 mv pancobs.txt ${s}_${ymd}obs.txt
 rm -rf *pancobs*txt
 done
-scp *${ymd}*.txt abentley@emcrzdm:/home/www/emc/htdocs/users/meg/gefs_plumes/
+
+#scp *${ymd}*.txt abentley@emcrzdm:/home/www/emc/htdocs/users/meg/gefs_plumes/
+
+scp *${ymd}*.txt wd20mj@emcrzdm.ncep.noaa.gov:/home/www/emc/htdocs/users/meg/gefs_plumes/
+
+scp *${ymd}*.txt wd20mj@emcrzdm:/home/people/emc/www/htdocs/mmb/gldas/gefs_plumes/
+
+
 fi
 exit
